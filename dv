@@ -1,0 +1,146 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/cat"))()
+local Window = Library:CreateWindow("dvixded.tk", Vector2.new(492, 598), Enum.KeyCode.RightControl) 
+local Silent_Aim = Window:CreateTab("Silent Aim")
+local Silent_Aim_sec = Silent_Aim:CreateSector("Silent Aim", "left")
+Silent_Aim_sec:AddToggle("Enable", false, function(A)
+    _G.SilentAim.Enabled=A
+end)
+
+Silent_Aim_sec:AddToggle("Auto Shoot", false, function(A)
+    _G.SilentAim.Auto_Shoot=A
+end)
+
+Silent_Aim_sec:AddToggle("Auto Wall", false, function(A)
+    _G.SilentAim.Auto_Wall=A
+end)
+
+Silent_Aim_sec:AddToggle("Ignore Fov", false, function(A)
+    _G.SilentAim.Ignore_Fov=A
+end)
+
+local ColorToggle = Silent_Aim_sec:AddToggle("Show Fov", false, function(A)
+    _G.SilentAim.Show_Fov=A
+end)
+
+ColorToggle:AddColorpicker(Color3.fromRGB(75,0,130), function (ztx)
+    _G.SilentAim.Fov_Color=ztx
+end)
+
+Silent_Aim_sec:AddSlider("FOV", 0, 100, 500, 1, function(State)
+    _G.SilentAim.Fov=State
+end)
+
+local ESP = Window:CreateTab("ESP")
+local ESP_sec = ESP:CreateSector("Charms", "Left")
+ESP_sec:AddToggle("Enable", false, function(A)
+    ESP_Enabled()
+end)
+
+local ColorToggle = ESP_sec:AddToggle("Visible color", false, function(A)
+    _G.SilentAim.Show_Fov=A
+end)
+
+ColorToggle:AddColorpicker(Color3.fromRGB(0, 255, 255), function (ztx)
+    _G.chams.IsVisiblein=ztx
+end)
+local ColorToggle = ESP_sec:AddToggle("Not visible color", false, function(A)
+    _G.SilentAim.Show_Fov=A
+end)
+
+ColorToggle:AddColorpicker(Color3.fromRGB(75,0,130), function (ztx)
+    _G.chams.IsNotVisible=ztx
+end)
+
+local Outline_sec = ESP:CreateSector("Outline", "Left")
+
+local ColorToggle = Outline_sec:AddToggle("Outline", false, function(A)
+    Outline()
+end)
+
+ColorToggle:AddColorpicker(Color3.fromRGB(75,0,130), function (ztx)
+    _G.Outline.Color=ztx
+end)
+local Custom_arms = ESP:CreateSector("Custom arms", "Right")
+local ColorToggle = Custom_arms:AddToggle("Enable", false, function(A)
+    Arms()
+end)
+
+ColorToggle:AddColorpicker(Color3.fromRGB(75,0,130), function (ztx)
+    _G.Arms.Color=ztx
+end)
+Custom_arms:AddDropdown("Dropdown", {"Plastic", "SmoothPlastic", "Neon", "Wood", "WoodPlanks" , "Marble","Slate","Concrete","Granite","Brick","Pebble","Cobblestone","Cobblestone","CorrodedMetal","DiamondPlate","Foil","Metal","Grass","Sand","Glass","ForceField"}, "ForceField", false, function(woldmatt)
+    _G.Arms.Mat=woldmatt
+end)
+local World_Visuals = Window:CreateTab("World Visuals") -- World Visuals
+local World_Color = World_Visuals:CreateSector("World Color", "left")
+local ColorToggle = World_Color:AddToggle("Enable", false, function(A)
+    World()
+end)
+
+ColorToggle:AddColorpicker(Color3.fromRGB(102, 101, 101), function (ztx)
+    _G.Worlds.Color=ztx
+end)
+World_Color:AddDropdown("Dropdown", {"Plastic", "SmoothPlastic", "Neon", "Wood", "WoodPlanks" , "Marble","Slate","Concrete","Granite","Brick","Pebble","Cobblestone","Cobblestone","CorrodedMetal","DiamondPlate","Foil","Metal","Grass","Sand","Glass","ForceField"}, "SmoothPlastic", false, function(davidb)
+    _G.Worlds.Mat=davidb
+end)
+
+local Ambient_wor = World_Visuals:CreateSector("Ambient", "Right")
+local ColorToggle = Ambient_wor:AddToggle("Enable", false, function(A)
+    Ambient()
+end)
+
+ColorToggle:AddColorpicker(Color3.fromRGB(102, 101, 101), function (ztx)
+    _G.Ambient.Color=ztx
+end)
+local Grenade_wor = World_Visuals:CreateSector("Grenade Chams", "Left")
+local ColorToggle = Grenade_wor:AddToggle("Enable", false, function(A)
+    _G.FragEsp.Enabled=A
+end)
+local ColorToggle = Grenade_wor:AddToggle("Not Visible color", false, function(A)
+end)
+
+ColorToggle:AddColorpicker(Color3.fromRGB(0, 255, 0), function (ztx)
+    _G.FragEsp.Color=ztx
+end)
+local ColorToggle = Grenade_wor:AddToggle("Visible color", false, function(A)
+end)
+
+ColorToggle:AddColorpicker(Color3.fromRGB(255, 0, 0), function (ztx)
+    _G.FragEsp.NotVisibleColor=ztx
+end)
+
+local Other = Window:CreateTab("Other") 
+local Other_sec = Other:CreateSector("Fly", "Left")
+
+Other_sec:AddToggle("Enable", false, function(first)
+    Fly_Balls()
+end)
+
+local Knife_Aura = Other:CreateSector("Knife Aura", "Right")
+Knife_Aura:AddToggle("Enable", false, function(first)
+    _G.KnifeAura.Enabled=first
+end)
+Knife_Aura:AddToggle("Auto_Stab", false, function(first)
+    _G.KnifeAura.Auto_Stab=first
+end)
+Knife_Aura:AddSlider("Range", 0, 30, 30, 1, function(State)
+    _G.KnifeAura.Range=State
+end)
+
+local Settings = Window:CreateTab("Settings") 
+Settings:CreateConfigSystem("Right")
+local Settings_sec = Settings:CreateSector("Info", "Left")
+Settings_sec:AddButton("YouTube", function(IhateGayPeople)
+    setclipboard("https://www.youtube.com/channel/UC8Pm_yBvpFAzobBsDPycjsw")
+end)
+Settings_sec:AddButton("Copy dvixded.tk discord", function(IhateGayPeople)
+    setclipboard("https://dvixded.tk")
+end)
+Settings_sec:AddDropdown("Made by rmg#3285", {"Silent Aim", "Frag Esp", "Knife Aura"}, "Silent Aim", true, function(dropdown)
+
+
+
+end)
+
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Riley0001/Features/main/yay"))()
